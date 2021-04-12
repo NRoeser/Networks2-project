@@ -25,7 +25,7 @@ public class Client {
 		
 	}
 	
-	private void connect(String ip) {
+	public void connect(String ip) {
 		if(connectedNodeIP == null) {
 			connectedNodeIP = ip;
 			System.out.println("Now connected to: " + ip);
@@ -34,7 +34,7 @@ public class Client {
 		}
 	}
 	
-	private void disconnect() {
+	public void disconnect() {
 		if (connectedNodeIP == null) {
 			System.out.println("Not connected to any node");
 		} else {
