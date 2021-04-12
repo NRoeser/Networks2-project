@@ -9,7 +9,7 @@ public class Node {
 	
 	private ArrayList<Node> connectedNodes = new ArrayList<Node>();
 	private ArrayList<Client> connectedClients = new ArrayList<Client>();
-	//private ArrayList<Query> queryList = new ArrayList<Query>();
+	private ArrayList<Query> queryList = new ArrayList<Query>();
 	
 	public Node(String IP, String port) {
 		this.IP = IP;
@@ -17,12 +17,23 @@ public class Node {
 	}
 	
 	public void setQuery(Query q) {
-		
+		queryList.add(q);
 	}
 	
-	public void getQuery(Query q) {
+	public Query getQuery(String key) {
 		
+		Query q = null;
+		
+		for(int i = 0; i<queryList.size();i++) {
+			if(queryList.get(i).getKey() == key) {
+				q = queryList.get(i);
+			}
+		}
+		
+		return q;
 	}
+	
+	
 	
 	public void connectToNode(Node n) {
 		connectedNodes.add(n);
@@ -42,6 +53,32 @@ public class Node {
 	
 	public void connectClient(Client c) {
 		c.connect(IP);
+		connectedClients.add(c);
 	}
+	
+	public void disconnectClient(Client c) {
+		c.disconnect();
+		connectedClients.remove(c);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
