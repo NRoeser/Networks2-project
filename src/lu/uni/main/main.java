@@ -1,3 +1,4 @@
+package lu.uni.main;
 
 public class main {
 
