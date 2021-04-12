@@ -23,12 +23,28 @@ public class Node {
 	public Query getQuery(String key) {
 		
 		Query q = null;
+		int c = 0;
+		int maxC = connectedNodes.size();
 		
 		for(int i = 0; i<queryList.size();i++) {
 			if(queryList.get(i).getKey() == key) {
 				q = queryList.get(i);
 			}
 		}
+		while(c<maxC) {
+			if(q == null) {
+			
+				for(int j = 0; j<connectedNodes.size();j++) {
+					
+					connectedNodes.get(j).getQuery(key);
+				}
+			
+			}else {
+				c = maxC;
+			}
+			c++;
+		}
+		
 		
 		return q;
 	}
