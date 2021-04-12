@@ -3,9 +3,11 @@ package lu.uni.networks2;
 public class Client {
 	private String connectedNodeIP = null;
 	private String ip;
+	private String port;
 	
-	public Client(String s) {
-		ip = s;
+	public Client(String i, String p) {
+		ip = i;
+		port = p;
 	}
 	
 	public void askUser() {
@@ -39,6 +41,10 @@ public class Client {
 			connectedNodeIP = null;
 			System.out.println("Now disconnected from former node");
 		}
+	}
+
+	public void setPort(String port) {
+		this.port = port;
 	}
 
 	
