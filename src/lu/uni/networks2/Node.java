@@ -16,6 +16,19 @@ public class Node {
 		this.port = port;
 	}
 	
+	
+	public void start(ArrayList<Node> nl) {
+		if(nl!=null) {
+			for(int i = 0; i< nl.size(); i++) {
+				if(nl.get(i).getPort()== port) {
+					connectToNode(nl.get(i));
+				}
+			}
+		}
+		
+	}
+	
+	
 	public void setQuery(Query q) {
 		queryList.add(q);
 	}
@@ -52,10 +65,20 @@ public class Node {
 	
 	
 	public void connectToNode(Node n) {
-		connectedNodes.add(n);
-		if(connectedNodes.contains(this)) {
-			n.connectToNode(this);
+		boolean connected=false;
+		for(int i = 0; i<connectedNodes.size();i++) {
+			if(n == connectedNodes.get(i)) {
+				connected = true;
+			}
 		}
+		
+		if(connected==false) {
+			connectedNodes.add(n);
+			if(connectedNodes.contains(this)) {
+				n.connectToNode(this);
+			}
+		}
+		
 		
 	}
 	
@@ -78,7 +101,9 @@ public class Node {
 	}
 	
 	
-	
+	public String getPort() {
+		return port;
+	}
 	
 	
 	
