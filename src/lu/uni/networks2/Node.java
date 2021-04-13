@@ -31,6 +31,7 @@ public class Node {
 	
 	public void setQuery(Query q) {
 		queryList.add(q);
+		System.out.println("Query has been added");
 	}
 	
 	public Query getQuery(String key) {
@@ -40,7 +41,7 @@ public class Node {
 		int maxC = connectedNodes.size();
 		
 		for(int i = 0; i<queryList.size();i++) {
-			if(queryList.get(i).getKey() == key) {
+			if(queryList.get(i).getKey().equals(key)) {
 				q = queryList.get(i);
 			}
 		}
@@ -64,6 +65,11 @@ public class Node {
 	
 	
 	
+	public String getIP() {
+		return IP;
+	}
+
+
 	public void connectToNode(Node n) {
 		boolean connected=false;
 		for(int i = 0; i<connectedNodes.size();i++) {
@@ -91,7 +97,6 @@ public class Node {
 	}
 	
 	public void connectClient(Client c) {
-		c.connect(IP);
 		connectedClients.add(c);
 	}
 	
