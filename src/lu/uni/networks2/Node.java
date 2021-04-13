@@ -22,6 +22,7 @@ public class Node {
 			for(int i = 0; i< nl.size(); i++) {
 				if(nl.get(i).getPort()== port) {
 					connectToNode(nl.get(i));
+					i=nl.size();// only connects to first other node
 				}
 			}
 		}
@@ -34,14 +35,14 @@ public class Node {
 		System.out.println("Query has been added");
 	}
 	
-	public Query getQuery(String key) {
+	public Query getQuery(String key, int id) {
 		
 		Query q = null;
 		int c = 0;
 		int maxC = connectedNodes.size();
 		
 		for(int i = 0; i<queryList.size();i++) {
-			if(queryList.get(i).getKey().equals(key)) {
+			if(queryList.get(i).getKey().equals(key) && queryList.get(i).getId()== id) {
 				q = queryList.get(i);
 			}
 		}
@@ -50,7 +51,7 @@ public class Node {
 			
 				for(int j = 0; j<connectedNodes.size();j++) {
 					
-					connectedNodes.get(j).getQuery(key);
+					connectedNodes.get(j).getQuery(key,id);
 				}
 			
 			}else {

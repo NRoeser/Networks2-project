@@ -35,10 +35,15 @@ public class Query {
 	public int getId() {
 		return id;
 	}
-
+	public void setID(int id) {
+		this.id = id;
+	}
+	
 	public String getValue() {
 		return value;
 	}
+	
+	
 	public void setValue(String value) {
 		this.value = value;
 	}
