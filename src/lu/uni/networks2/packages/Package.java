@@ -6,7 +6,7 @@ import java.util.Scanner;
 public abstract class Package {
 
 	private static ArrayList<Integer> listOfIDs = new ArrayList<Integer>();
-	private int id;
+	protected int id;
 	
 	
 	public Package(int id) {

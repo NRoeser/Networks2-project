@@ -13,10 +13,9 @@ public class GetQuery extends Package {
 		return key;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void print() {
+		System.out.println("GET: " + id + " : " + key);
 	}
-	
 	
 	
 
