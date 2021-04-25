@@ -51,6 +51,12 @@ public class Client {
 		this.port = port;
 	}
 
+	public String getIp() {
+		return ip;
+	}
+	
+	
+
 	
 
 }
