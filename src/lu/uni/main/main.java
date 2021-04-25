@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import lu.uni.networks2.Client;
 import lu.uni.networks2.Node;
-import lu.uni.networks2.Query;
 
 public class main {
 	

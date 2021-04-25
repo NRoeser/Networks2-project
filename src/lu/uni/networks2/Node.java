@@ -2,6 +2,8 @@ package lu.uni.networks2;
 
 import java.util.ArrayList;
 
+import lu.uni.networks2.query.Query;
+
 public class Node {
 
 	private String IP;
