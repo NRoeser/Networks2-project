@@ -25,22 +25,9 @@ public abstract class Package {
 	public int getId() {
 		return id;
 	}
-<<<<<<< HEAD:src/lu/uni/networks2/Query.java
 	public void setID(int id) {
 		this.id = id;
 	}
-	
-	public String getValue() {
-		return value;
-	}
-	
-	
-	public void setValue(String value) {
-		this.value = value;
-	}
-=======
-
->>>>>>> ebdac320cfae3f73c36518fe9a294f4e435ce790:src/lu/uni/networks2/packages/Package.java
 	
 	
 	
