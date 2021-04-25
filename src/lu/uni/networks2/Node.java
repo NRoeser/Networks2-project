@@ -11,7 +11,7 @@ public class Node {
 	
 	private ArrayList<Node> connectedNodes = new ArrayList<Node>();
 	private ArrayList<Client> connectedClients = new ArrayList<Client>();
-	private ArrayList<Query> queryList = new ArrayList<Query>();
+	private ArrayList<Package> queryList = new ArrayList<Package>();
 	
 	public Node(String IP, String port) {
 		this.IP = IP;
@@ -31,14 +31,14 @@ public class Node {
 	}
 	
 	
-	public void setQuery(Query q) {
+	public void setQuery(Package q) {
 		queryList.add(q);
 		System.out.println("Query has been added");
 	}
 	
-	public Query getQuery(String key) {
+	public Package getQuery(String key) {
 		
-		Query q = null;
+		Package q = null;
 		int c = 0;
 		int maxC = connectedNodes.size();
 		

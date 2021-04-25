@@ -1,15 +1,15 @@
-package lu.uni.networks2.query;
+package lu.uni.networks2.packages;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Query {
+public abstract class Package {
 
 	private static ArrayList<Integer> listOfIDs = new ArrayList<Integer>();
 	private int id;
 	
 	
-	public Query(int id) {
+	public Package(int id) {
 		super();
 		while (listOfIDs.contains(id)) {
 			Scanner scanner = new Scanner(System.in);
