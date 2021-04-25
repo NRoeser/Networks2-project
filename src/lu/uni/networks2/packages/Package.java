@@ -1,20 +1,16 @@
-package lu.uni.networks2;
+package lu.uni.networks2.packages;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Query {
+public abstract class Package {
 
 	private static ArrayList<Integer> listOfIDs = new ArrayList<Integer>();
-	private String key;
-	private String value;
-	private int id;
+	protected int id;
 	
 	
-	public Query(String key, String value, int id) {
+	public Package(int id) {
 		super();
-		this.key = key;
-		this.value = value;
 		while (listOfIDs.contains(id)) {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("Id already exists, enter a new one!");
@@ -25,16 +21,11 @@ public class Query {
 		this.id = id;
 		listOfIDs.add(id);
 	}
-	
-	public String getKey() {
-		return key;
-	}
-	public void setKey(String key) {
-		this.key = key;
-	}
+
 	public int getId() {
 		return id;
 	}
+<<<<<<< HEAD:src/lu/uni/networks2/Query.java
 	public void setID(int id) {
 		this.id = id;
 	}
@@ -47,6 +38,9 @@ public class Query {
 	public void setValue(String value) {
 		this.value = value;
 	}
+=======
+
+>>>>>>> ebdac320cfae3f73c36518fe9a294f4e435ce790:src/lu/uni/networks2/packages/Package.java
 	
 	
 	
