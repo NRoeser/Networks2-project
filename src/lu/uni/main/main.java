@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import lu.uni.networks2.Client;
 import lu.uni.networks2.Node;
+import lu.uni.networks2.packages.*;
+import lu.uni.networks2.packages.Packet;
 
 public class main {
 	
@@ -31,7 +33,7 @@ public class main {
 		String keyInput = scanner.nextLine();
 		System.out.println("Enter a value for the SET query: ");
 		String valueInput = scanner.nextLine();
-		Package firstQuery = new Package(keyInput, valueInput, idInput);
+		Packet firstQuery = new SetQuery(idInput, keyInput, valueInput);
 		myNode.setQuery(firstQuery);
 		System.out.println("Enter the ID for the GET query: ");
 		int inputID = scanner.nextInt();
@@ -44,7 +46,7 @@ public class main {
 		}
 		
 		
-		Package foundQuery = myNode.getQuery(inputKeyQuery);
+		Packet foundQuery = myNode.getQuery(inputKeyQuery);
 		System.out.println("Your Query: " + foundQuery.getId() + "; "+ foundQuery.getKey() + "; " + foundQuery.getValue());
 		scanner.close();
 	}

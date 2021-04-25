@@ -1,6 +1,6 @@
 package lu.uni.networks2.packages;
 
-public class DenyConnectionPermission extends Package {
+public class DenyConnectionPermission extends Packet {
 	
 	private String askerIP;
 

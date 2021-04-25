@@ -1,6 +1,6 @@
 package lu.uni.networks2.packages;
 
-public class GETResponse extends Package {
+public class GETResponse extends Packet {
 	
 	private String value;
 	private String receiverIP;

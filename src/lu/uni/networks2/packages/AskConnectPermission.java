@@ -1,6 +1,6 @@
 package lu.uni.networks2.packages;
 
-public class AskConnectPermission extends Package {
+public class AskConnectPermission extends Packet {
 	
 	private String ip;
 

@@ -3,13 +3,13 @@ package lu.uni.networks2.packages;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Package {
+public abstract class Packet {
 
 	private static ArrayList<Integer> listOfIDs = new ArrayList<Integer>();
 	protected int id;
 	
 	
-	public Package(int id) {
+	public Packet(int id) {
 		super();
 		while (listOfIDs.contains(id)) {
 			Scanner scanner = new Scanner(System.in);

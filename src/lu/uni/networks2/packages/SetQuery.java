@@ -1,6 +1,6 @@
 package lu.uni.networks2.packages;
 
-public class SetQuery extends Package{
+public class SetQuery extends Packet{
 	
 	private String key;
 	

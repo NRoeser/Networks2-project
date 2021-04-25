@@ -1,6 +1,7 @@
 package lu.uni.networks2;
 
 import java.util.ArrayList;
+import lu.uni.networks2.packages.*;
 
 
 public class Node {
@@ -10,7 +11,7 @@ public class Node {
 	
 	private ArrayList<Node> connectedNodes = new ArrayList<Node>();
 	private ArrayList<Client> connectedClients = new ArrayList<Client>();
-	private ArrayList<Package> queryList = new ArrayList<Package>();
+	private ArrayList<Packet> queryList = new ArrayList<Packet>();
 	
 	public Node(String IP, String port) {
 		this.IP = IP;
@@ -31,7 +32,7 @@ public class Node {
 	}
 	
 	
-	public void setQuery(Package q) {
+	public void setQuery(Packet q) {
 		queryList.add(q);
 		System.out.println("Query has been added");
 	}

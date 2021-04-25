@@ -1,6 +1,6 @@
 package lu.uni.networks2.packages;
 
-public class GiveConnectionPermission extends Package{
+public class GiveConnectionPermission extends Packet{
 	
 	private String giverIP;
 	private String receiverIP;
