@@ -12,6 +12,7 @@ public class Node {
 	private String port;
 	private boolean letConnect = true;
 	
+	private ArrayList<Packet> packetsInNode = new ArrayList<Packet>();
 	private ArrayList<Node> connectedNodes = new ArrayList<Node>();
 	private ArrayList<Client> connectedClients = new ArrayList<Client>();
 	private ArrayList<SetQuery> queryList = new ArrayList<SetQuery>();
@@ -53,31 +54,35 @@ public class Node {
 		}
 	}
 	
-	
-	
-	public GETResponse getQuery(String key) {
+	public SetQuery checkQuery(GetQuery getQ) {
 		
-		GETResponse q = null;
-		int c = 0;
-		int maxC = connectedNodes.size();
-		
-		for(int i = 0; i<queryList.size();i++) {
-			if(queryList.get(i).getKey().equals(key)) {
-				q =  new GETResponse(queryList.get(i).getValue(), connectedClients.get(0).getIp());
+		boolean r=false;
+		for(SetQuery query:queryList) {
+			if(query.getKey().equals(getQ.getKey())) {
+				return query;
 			}
 		}
-		while(c<maxC) {
-			if(q == null) {
-			
-				for(int j = 0; j<connectedNodes.size();j++) {
-					
-					connectedNodes.get(j).getQuery(key);
-				}
-			
+		
+		return null;
+	}
+	
+	public GETResponse getQuery(GetQuery getQ, Client c) {
+		
+		GETResponse q = null;
+		
+		if(!packetsInNode.contains(getQ)) {
+			packetsInNode.add(getQ);
+			SetQuery s = checkQuery(getQ);
+			if(s!=null) {
+				q = new GETResponse(s.getValue(),c.getIp()); // TODO: Client who asked for it 
+				System.out.println("Found query with value: " +s.getValue() +" on node: " +this.IP);
 			}else {
-				c = maxC;
+				System.out.println("no query found on this node: " +this.IP);
+				for(Node conNode:connectedNodes) {
+					conNode.getQuery(getQ,c);
+					
+				}
 			}
-			c++;
 		}
 		
 		
@@ -101,9 +106,7 @@ public class Node {
 		
 		if(connected==false) {
 			connectedNodes.add(n);
-			if(connectedNodes.contains(this)) {
-				n.connectToNode(this);
-			}
+			n.connectToNode(this);
 		}
 		
 		

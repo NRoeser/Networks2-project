@@ -46,14 +46,14 @@ public class main {
 	
 	public static void implementationB() {
 		listOfNodes.removeAll(listOfNodes);
-		Node a = new Node("162.111.123","5432");
-		Node b = new Node("162.121.965","5432");
-		Node c = new Node("162.131.451","5432");
-		Node d = new Node("162.141.951","5432");
-		Node e = new Node("162.151.361","5432");
-		Node f = new Node("162.161.489","5432");
-		Node g = new Node("162.171.615","5432");
-		Node h = new Node("162.181.985","5432");
+		Node a = new Node("162.1a1.123","5432");
+		Node b = new Node("162.1b1.965","5432");
+		Node c = new Node("162.1c1.451","5432");
+		Node d = new Node("162.1d1.951","5432");
+		Node e = new Node("162.1e1.361","5432");
+		Node f = new Node("162.1f1.489","5432");
+		Node g = new Node("162.1g1.615","5432");
+		Node h = new Node("162.1h1.985","5432");
 		Client c1 = new Client("169.121.541","5236");
 		Client c2 = new Client("169.131.948","5236");
 		
@@ -66,12 +66,21 @@ public class main {
 		f.connectToNode(e);f.connectToNode(g);
 		g.connectToNode(h);g.connectToNode(d);
 		
-		c1.connect("162.121.965");c2.connect("162.161.489");
+		c1.connect("162.1b1.965");c2.connect("162.1f1.489");
+		
+		SetQuery q = new SetQuery("key1","valude");
+		a.setQuery(q);
+		
+		GetQuery q1 = new GetQuery("key1");
+		c2.getConnectedNode().getQuery(q1,c2);
 		
 	}
 
 	public static void main(String[] args) {
-		implimentationA();
+		//implimentationA();
+		implementationB();
+		
+		
 	}
 
 }

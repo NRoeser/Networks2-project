@@ -54,6 +54,10 @@ public class Client {
 		this.port = port;
 	}
 
+	public Node getConnectedNode() {
+		return connectedNode;
+	}
+	
 	public String getIp() {
 		return ip;
 	}
