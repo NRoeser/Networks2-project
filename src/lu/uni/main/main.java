@@ -33,7 +33,7 @@ public class main {
 		String keyInput = scanner.nextLine();
 		System.out.println("Enter a value for the SET query: ");
 		String valueInput = scanner.nextLine();
-		Packet firstQuery = new SetQuery(idInput, keyInput, valueInput);
+		SetQuery firstQuery = new SetQuery(idInput, keyInput, valueInput);
 		myNode.setQuery(firstQuery);
 		System.out.println("Enter the ID for the GET query: ");
 		int inputID = scanner.nextInt();
@@ -44,10 +44,8 @@ public class main {
 			System.out.println("Wrong key, enter a new one: ");
 			inputKeyQuery = scanner.nextLine();
 		}
-		
-		
-		Packet foundQuery = myNode.getQuery(inputKeyQuery);
-		System.out.println("Your Query: " + foundQuery.getId() + "; "+ foundQuery.getKey() + "; " + foundQuery.getValue());
+		GETResponse foundQuery = myNode.getQuery(inputKeyQuery, inputID);
+		System.out.println("Your Query: " + foundQuery.getId() + "; Value: " + foundQuery.getValue());
 		scanner.close();
 	}
 	

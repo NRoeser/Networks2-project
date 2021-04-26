@@ -4,8 +4,8 @@ public class GetQuery extends Packet {
 	
 	private String key;
 
-	public GetQuery(int id, String key) {
-		super(id);
+	public GetQuery(String key) {
+		super();
 		this.key = key;
 	}
 

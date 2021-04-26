@@ -4,8 +4,8 @@ public class DenyConnectionPermission extends Packet {
 	
 	private String askerIP;
 
-	public DenyConnectionPermission(int id, String aIP) {
-		super(id);
+	public DenyConnectionPermission(String aIP) {
+		super();
 		this.askerIP = aIP;
 	}
 

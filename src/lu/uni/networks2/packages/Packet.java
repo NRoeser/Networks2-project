@@ -1,6 +1,7 @@
 package lu.uni.networks2.packages;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Packet {
@@ -9,16 +10,9 @@ public abstract class Packet {
 	protected int id;
 	
 	
-	public Packet(int id) {
+	public Packet() {
 		super();
-		while (listOfIDs.contains(id)) {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("Id already exists, enter a new one!");
-			id = scanner.nextInt();
-			scanner.nextLine();
-			scanner.close();
-		}
-		this.id = id;
+		this.id = generateID();
 		listOfIDs.add(id);
 	}
 
@@ -27,6 +21,16 @@ public abstract class Packet {
 	}
 	public void setID(int id) {
 		this.id = id;
+	}
+	
+	public static int generateID() {
+		int id;
+		Random r = new Random();
+		id = r.nextInt(5000);
+		while (listOfIDs.contains(id)) {
+			id = r.nextInt();
+		}
+		return id;
 	}
 	
 	
