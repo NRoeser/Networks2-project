@@ -4,8 +4,8 @@ public class AskConnectPermission extends Packet {
 	
 	private String ip;
 
-	public AskConnectPermission(int id, String ip) {
-		super(id);
+	public AskConnectPermission(String ip) {
+		super();
 		this.ip = ip;
 	}
 

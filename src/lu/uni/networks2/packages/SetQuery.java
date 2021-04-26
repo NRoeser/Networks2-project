@@ -6,8 +6,8 @@ public class SetQuery extends Packet{
 	
 	private String value;
 
-	public SetQuery(int id, String key, String value) {
-		super(id);
+	public SetQuery(String key, String value) {
+		super();
 		this.key = key;
 		this.value = value;
 	}

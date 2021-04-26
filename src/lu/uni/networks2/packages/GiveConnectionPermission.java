@@ -5,8 +5,8 @@ public class GiveConnectionPermission extends Packet{
 	private String giverIP;
 	private String receiverIP;
 
-	public GiveConnectionPermission(int id, String gIP, String rIP) {
-		super(id);
+	public GiveConnectionPermission(String gIP, String rIP) {
+		super();
 		this.giverIP = gIP;
 		this.receiverIP = rIP;
 	}

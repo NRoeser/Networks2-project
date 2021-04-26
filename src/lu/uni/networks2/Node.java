@@ -10,10 +10,12 @@ public class Node {
 
 	private String IP;
 	private String port;
+	private boolean letConnect = true;
 	
 	private ArrayList<Node> connectedNodes = new ArrayList<Node>();
 	private ArrayList<Client> connectedClients = new ArrayList<Client>();
 	private ArrayList<SetQuery> queryList = new ArrayList<SetQuery>();
+	private ArrayList<AskConnectPermission> pastAskConnectPermissions = new ArrayList<AskConnectPermission>();
 	
 	public Node(String IP, String port) {
 		this.IP = IP;
@@ -39,6 +41,20 @@ public class Node {
 		System.out.println("Query has been added");
 	}
 	
+	
+	public Packet connectToClient(Client c, AskConnectPermission asc) {
+		pastAskConnectPermissions.add(asc);
+		if (letConnect) {
+			GiveConnectionPermission gcp = new GiveConnectionPermission(this.getIP(), c.getIp());
+			return gcp;
+		} else {
+			DenyConnectionPermission dcp = new DenyConnectionPermission(c.getIp());
+			return dcp;
+		}
+	}
+	
+	
+	
 	public GETResponse getQuery(String key, int id) {
 		
 		GETResponse q = null;
@@ -47,8 +63,7 @@ public class Node {
 		
 		for(int i = 0; i<queryList.size();i++) {
 			if(queryList.get(i).getKey().equals(key) && queryList.get(i).getId()== id) {
-				Random r = new Random();
-				q =  new GETResponse(r.nextInt(5000), queryList.get(i).getValue(), connectedClients.get(0).getIp());
+				q =  new GETResponse(queryList.get(i).getValue(), connectedClients.get(0).getIp());
 			}
 		}
 		while(c<maxC) {

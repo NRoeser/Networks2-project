@@ -1,6 +1,9 @@
 package lu.uni.networks2;
 
 import lu.uni.main.main;
+import lu.uni.networks2.packages.AskConnectPermission;
+import lu.uni.networks2.packages.GiveConnectionPermission;
+import lu.uni.networks2.packages.Packet;
 
 public class Client {
 	private Node connectedNode = null;
@@ -12,23 +15,23 @@ public class Client {
 		port = p;
 	}
 	
-
 	
-	public void setQuery(String key, String value) {
-		
-	}
-	
-	public void getQuery(String key) {
-	}
 	
 	public boolean connect(String s) {
 		if(connectedNode == null) {
 			for (Node n: main.listOfNodes) {
 				if (n.getIP().equals(s)) {
-					connectedNode = n;
-					n.connectClient(this);
-					System.out.println("Now connected to: " + s);
-					return true;
+					AskConnectPermission asc = new AskConnectPermission(this.getIp());
+					Packet permissionResponse = n.connectToClient(this, asc);
+					if (permissionResponse.getClass() == GiveConnectionPermission.class){
+						connectedNode = n;
+						n.connectClient(this);
+						System.out.println("Now connected to: " + s);
+						return true;
+					} else {
+						System.out.println("Connection has been denied! ");
+						return false;
+					}
 				}
 			}
 			System.out.println("No node found with that IP");

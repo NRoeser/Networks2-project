@@ -5,8 +5,8 @@ public class GETResponse extends Packet {
 	private String value;
 	private String receiverIP;
 
-	public GETResponse(int id, String value, String receiverIP) {
-		super(id);
+	public GETResponse(String value, String receiverIP) {
+		super();
 		this.value = value;
 		this.receiverIP = receiverIP;
 	}
