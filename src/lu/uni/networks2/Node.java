@@ -85,11 +85,10 @@ public class Node {
 			pathToClient.get(0).getTemporaryList().get(0);
 			System.out.println("GETResponse has reached its client");
 		} else {
-			System.out.println("ADDING TO: " + Integer.toString(size-1));
 			pathToClient.get(size-1).getTemporaryList().add(pathToClient.get(size).getTemporaryList().get(0));
 			pathToClient.get(size).getTemporaryList().remove(0);
 			pathToClient.remove(size);
-			sendGETResponsePacket(pathToClient, query);
+			pathToClient.get(size-1).sendGETResponsePacket(pathToClient, query);
 		}
 		
 	}
