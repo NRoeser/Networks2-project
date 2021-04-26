@@ -69,10 +69,10 @@ public class main {
 		c1.connect("162.1b1.965");c2.connect("162.1f1.489");
 		
 		SetQuery q = new SetQuery("key1","valude");
-		a.setQuery(q);
+		b.setQuery(q);
 		
 		GetQuery q1 = new GetQuery("key1");
-		c2.getConnectedNode().getQuery(q1,c2);
+		c2.askNodeForQuery(q1);
 		
 	}
 
