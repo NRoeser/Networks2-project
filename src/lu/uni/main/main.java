@@ -26,25 +26,20 @@ public class main {
 			System.out.println("Enter a new IP address to connect to: ");
 			input = scanner.nextLine();
 		}
-		System.out.println("Enter an ID for the query: ");
-		int idInput = scanner.nextInt();
-		scanner.nextLine();
+		
 		System.out.println("Enter a key for SET query: ");
 		String keyInput = scanner.nextLine();
 		System.out.println("Enter a value for the SET query: ");
 		String valueInput = scanner.nextLine();
-		SetQuery firstQuery = new SetQuery(idInput, keyInput, valueInput);
+		SetQuery firstQuery = new SetQuery(keyInput, valueInput);
 		myNode.setQuery(firstQuery);
-		System.out.println("Enter the ID for the GET query: ");
-		int inputID = scanner.nextInt();
-		scanner.nextLine();
 		System.out.println("Enter the key value for the GET query: ");
 		String inputKeyQuery = scanner.nextLine();
-		while (myNode.getQuery(inputKeyQuery,inputID) == null) {
+		while (myNode.getQuery(inputKeyQuery) == null) {
 			System.out.println("Wrong key, enter a new one: ");
 			inputKeyQuery = scanner.nextLine();
 		}
-		GETResponse foundQuery = myNode.getQuery(inputKeyQuery, inputID);
+		GETResponse foundQuery = myNode.getQuery(inputKeyQuery);
 		System.out.println("Your Query: " + foundQuery.getId() + "; Value: " + foundQuery.getValue());
 		scanner.close();
 	}
