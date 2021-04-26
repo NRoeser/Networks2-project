@@ -74,6 +74,7 @@ public class main {
 		g.connectToNode(h);g.connectToNode(d);
 		
 		c1.connect("162.121.965");c2.connect("162.161.489");
+		
 	}
 
 	public static void main(String[] args) {
