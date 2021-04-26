@@ -55,14 +55,14 @@ public class Node {
 	
 	
 	
-	public GETResponse getQuery(String key, int id) {
+	public GETResponse getQuery(String key) {
 		
 		GETResponse q = null;
 		int c = 0;
 		int maxC = connectedNodes.size();
 		
 		for(int i = 0; i<queryList.size();i++) {
-			if(queryList.get(i).getKey().equals(key) && queryList.get(i).getId()== id) {
+			if(queryList.get(i).getKey().equals(key)) {
 				q =  new GETResponse(queryList.get(i).getValue(), connectedClients.get(0).getIp());
 			}
 		}
@@ -71,7 +71,7 @@ public class Node {
 			
 				for(int j = 0; j<connectedNodes.size();j++) {
 					
-					connectedNodes.get(j).getQuery(key,id);
+					connectedNodes.get(j).getQuery(key);
 				}
 			
 			}else {
