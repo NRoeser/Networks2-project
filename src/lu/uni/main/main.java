@@ -44,7 +44,7 @@ public class main {
 		scanner.close();
 	}
 	
-	public static void implementationB() {
+	public static void implementationBC() {
 		listOfNodes.removeAll(listOfNodes);
 		Node a = new Node("162.1a1.123","5432");
 		Node b = new Node("162.1b1.965","5432");
@@ -73,12 +73,11 @@ public class main {
 		
 		GetQuery q1 = new GetQuery("key1");
 		c2.askNodeForQuery(q1);
-		
 	}
 
 	public static void main(String[] args) {
 		//implimentationA();
-		implementationB();
+		implementationBC();
 		
 		
 	}
