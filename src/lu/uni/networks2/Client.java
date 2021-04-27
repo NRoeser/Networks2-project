@@ -54,10 +54,10 @@ public class Client {
 		}
 	}
 
-	public void askNodeForQuery(GetQuery query) {
+	public boolean askNodeForQuery(GetQuery query) {
 		ArrayList<Node> pathToClient = new ArrayList<Node>();
 		this.listOfGetQuery.add(query);
-		this.connectedNode.getQuery(query, pathToClient);
+		return this.connectedNode.getQuery(query, pathToClient);
 	}
 
 	public void setPort(String port) {

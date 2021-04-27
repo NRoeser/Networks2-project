@@ -35,12 +35,12 @@ public class main {
 		myNode.setQuery(firstQuery);
 		System.out.println("Enter the key value for the GET query: ");
 		String inputKeyQuery = scanner.nextLine();
-		while (myNode.getQuery(inputKeyQuery) == null) {
+		GetQuery query = new GetQuery(inputKeyQuery);
+		while (myClient.askNodeForQuery(query)) {
 			System.out.println("Wrong key, enter a new one: ");
 			inputKeyQuery = scanner.nextLine();
+			query = new GetQuery(inputKeyQuery);
 		}
-		GETResponse foundQuery = myNode.getQuery(inputKeyQuery);
-		System.out.println("Your Query: " + foundQuery.getId() + "; Value: " + foundQuery.getValue());
 		scanner.close();
 	}
 	
